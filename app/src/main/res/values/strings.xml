@@ -1,0 +1,32 @@
+<resources>
+    <string name="app_name">PilotestArithmetic</string>
+
+    <string name="home_training_session_button">Start a training session</string>
+    <string name="home_training_session_subtitle">No pressure.</string>
+    <string name="home_training_session_description">You have unlimited time and answers are given every questions.</string>
+
+    <string name="home_exam_session_button">Start an exam session</string>
+    <string name="home_exam_session_subtitle">The real challenge.</string>
+    <string name="home_exam_session_description">There is a timer and you can only review your answers at the end.</string>
+
+    <string name="exam_mode">Exam</string>
+    <string name="training_mode">Training</string>
+
+    <string name="answer_text_field_label">Answer</string>
+    <string name="answer_text_field_placeholder">Type the answer</string>
+    <string name="answer_text_field_error">Please enter a valid number</string>
+
+    <string name="real_answer_comment_fail">If Pyroli could read, he would not be happy!</string>
+    <string name="real_answer_comment_nice">You got this! Nice one!</string>
+    <string name="the_answer_was_text">The answer was:</string>
+
+    <string name="continue_button">Continue</string>
+    <string name="show_score_button">Show your score!</string>
+
+    <string name="result_your_answer_text">Your answer:</string>
+    <string name="result_the_solution_text">The solution:</string>
+
+    <string name="home_button">Home</string>
+    <string name="score">Your score is</string>
+    <string name="question">Question</string>
+</resources>
