@@ -88,13 +88,15 @@ fun ExamScreen(
             ExamQuestion(
                 equation = questionsViewModel.currentEquation.value,
                 isLastQuestion = questionsViewModel.isLastQuestion(),
-                onNextQuestion = { isCorrect, userAnswer ->
+                onAnswer = { isCorrect, userAnswer ->
+                    questionsViewModel.timer.pauseSilentTimer()
                     if (isCorrect) {
                         questionsViewModel.incrementScore()
                     }
-
                     questionsViewModel.saveUserAnswer(userAnswer)
                     questionsViewModel.saveEquation()
+                },
+                onNextQuestion = {
                     if (!questionsViewModel.isLastQuestion()) {
                         // Increment and refresh equation only if the last question is not reached
                         questionsViewModel.incrementCurrentQuestion()
@@ -130,7 +132,8 @@ fun ExamScreen(
 fun ExamQuestion(
     equation: Equation,
     isLastQuestion: Boolean,
-    onNextQuestion: (isCorrect: Boolean, userAnswer: Int) -> Unit,
+    onAnswer: (isCorrect: Boolean, userAnswer: Int) -> Unit,
+    onNextQuestion: () -> Unit,
     modifier: Modifier = Modifier
 ) {
     var userAnswer by remember(equation) { mutableStateOf("") }
@@ -186,12 +189,13 @@ fun ExamQuestion(
                 )
             },
             onDone = {
-                val userAnswerInt = userAnswer.toIntOrNull()
-                badInput = (userAnswerInt == null && userAnswer.isNotEmpty())
+                badInput = (userAnswer.toIntOrNull() == null && userAnswer.isEmpty())
                 // No errors to validate
                 if (!badInput) {
+                    val userAnswerInt = userAnswer.toInt()
                     correct = userAnswerInt == equation.solve()
                     submit = true
+                    onAnswer(correct, userAnswerInt)
                 }
             }
         )
@@ -209,7 +213,7 @@ fun ExamQuestion(
 
         if (submit) {
             Button(
-                onClick = { onNextQuestion(correct, userAnswer.toInt()) },
+                onClick = onNextQuestion,
                 shape = MaterialTheme.shapes.medium
             ) {
                 if (isLastQuestion) {

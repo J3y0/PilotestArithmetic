@@ -200,7 +200,7 @@ fun TrainingQuestion(
             },
             colors = style,
             onDone = {
-                badInput = (userAnswer.toIntOrNull() == null && userAnswer.isNotEmpty())
+                badInput = (userAnswer.toIntOrNull() == null && userAnswer.isEmpty())
                 // No errors to validate
                 if (!badInput) {
                     val userAnswerInt = userAnswer.toInt()
