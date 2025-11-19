@@ -19,10 +19,10 @@ answers and the correct ones.
 The application is simple, useful and efforts have been made in the UI/UX (discover by yourself with
 the screenshots below :)).
 
-![Home Screen](./screenshots/home_screen.png)
-![Question Count Dialog](./screenshots/dialog_question_count.png)
-![Training Question Screen](./screenshots/training_question_screen.png)
-![Result Screen](./screenshots/result_screen.png)
+<img src="./screenshots/home_screen.png" height=550px></img>
+<img src="./screenshots/dialog_question_count.png" height=550px></img>
+<img src="./screenshots/training_question_screen.png" height=550px></img>
+<img src="./screenshots/result_screen.png" height=550px></img>
 
 >Fun fact: Pyroli is the name of my cat, hence the playful message when failing
 
@@ -48,7 +48,7 @@ keyPassword=<your-password>
 
 All four variables must be defined.
 
-## Feedbacks
+## Feedback
 
 If you notice any problem with the application or encounter any bugs, feel free to open an issue. I
 would be glad to look into it :)
